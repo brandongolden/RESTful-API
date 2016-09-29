@@ -17,8 +17,8 @@ module.exports = function(express) {
 	router.get('/url/:url(*)', function(req, res) {
 
 		// Generate a random string for shortened URL
-		// input parameter is the length of the string output
-		function randomString(input)
+		// stringLength parameter is the length of the string output
+		function randomString(stringLength)
 		{
 		    var random_string = "";
 		    
@@ -26,7 +26,7 @@ module.exports = function(express) {
 		    var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
 		    
 		    // Generate random string
-		    for( var i=0; i < input; i++ )
+		    for( var i=0; i < stringLength; i++ )
 		        random_string += charset.charAt(Math.floor(Math.random() * charset.length));
 		    
 		    // Return the generated string
