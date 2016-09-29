@@ -16,21 +16,28 @@ module.exports = function(express) {
 
 	router.get('/url/:url(*)', function(req, res) {
 
-
+		// Generate a random string for shortened URL
+		// input parameter is the length of the string output
 		function randomString(input)
 		{
 		    var random_string = "";
 		    
+		    // Characters that are allowed to be used in random string generator
 		    var charset = "abcdefghijklmnopqrstuvwxyz0123456789";
 		    
+		    // Generate random string
 		    for( var i=0; i < input; i++ )
 		        random_string += charset.charAt(Math.floor(Math.random() * charset.length));
 		    
+		    // Return the generated string
 		    return random_string;
 		}
 
 
+		// Shortened URL
 		var shortened_url = "http://localhost:3000/" + randomString(6);
+
+		// json output
 		res.json({url: { user_url: req.params.url, shortened_url: shortened_url }});
 	});
 
