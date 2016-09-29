@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/brandongolden/RESTful-API.git"
+    "url": "git+https://github.com/brandongolden/URL-Shortener.git"
   },
   "author": "Brandon Golden",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/brandongolden/RESTful-API/issues"
+    "url": "https://github.com/brandongolden/URL-Shortener/issues"
   },
-  "homepage": "https://github.com/brandongolden/RESTful-API#readme",
+  "homepage": "https://github.com/brandongolden/URL-Shortener#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
     "express": "^4.14.0"
