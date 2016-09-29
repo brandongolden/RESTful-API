@@ -10,4 +10,5 @@ $ npm install --save-dev mocha
 $ npm install --save-dev supertest
 ```
 ## Endpoints
-/api/v1/url
+GET /api/v1/url
+{"url":{"user_url":"http://www.fullsail.edu/","shortened_url":"http://localhost:3000/ypc6z5"}}
