@@ -8,6 +8,9 @@ $ npm install --save-dev chai
 $ npm install --save-dev expect
 $ npm install --save-dev mocha
 $ npm install --save-dev supertest
+$ npm install sequelize
+$ npm install mysql
+$ npm install dotenv --save
 ```
 ## Endpoints
 GET /api/v1/url
