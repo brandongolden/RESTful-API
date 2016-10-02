@@ -1,11 +1,11 @@
-const user = require('../../models/url');
+const url = require('../../models/url');
 
 module.exports = (express) => {
 	const router = express.Router();
 
 	// Read All
 	router.get('/urls', (req, res) => {
-		user.findAll( (err) => {
+		url.findAll( (err) => {
 			res.status(500).json(err);
 		}, (data) => {
 			res.status(200).json(data);
@@ -15,7 +15,7 @@ module.exports = (express) => {
 	// Read One
 	router.get('/url/:id', (req, res) => {
 		req.body.id = req.params.id;
-		user.find(req.body, (err) => {
+		url.find(req.body, (err) => {
 			res.status(500).json(err);
 		}, (data) => {
 			res.status(200).json(data);
@@ -25,7 +25,7 @@ module.exports = (express) => {
 	// Delete
 	router.delete('/url/:id', (req, res) => {
 		req.body.id = req.params.id;
-		user.destroy(req.body, (err) => {
+		url.destroy(req.body, (err) => {
 			res.status(500).json(err);
 		}, (data) => {
 			res.status(200).json(data);
@@ -35,7 +35,7 @@ module.exports = (express) => {
 	// Update
 	router.post('/url/:id', (req, res) => {
 		req.body.id = req.params.id;
-		user.update(req.body, (err) => {
+		url.update(req.body, (err) => {
 			res.status(500).json(err);
 		}, (data) => {
 			res.status(200).json(data);
@@ -44,7 +44,8 @@ module.exports = (express) => {
 
 	// Create
 	router.post('/url', (req, res) => {
-		user.create(req.body, (err) => {
+
+		url.create(req.body, (err) => {
 			res.status(500).json(err);
 		}, (data) => {
 			res.status(200).json(data);
