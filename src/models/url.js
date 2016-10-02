@@ -1,15 +1,15 @@
 const db = require('./db');
 
 exports.create = (payload, err, success) => {
-	db.user.create(payload).then(success).catch(err);
+	db.url.create(payload).then(success).catch(err);
 }
 
 exports.findAll = (err, success) => {
-	db.user.findAll().then(success).catch(err);
+	db.url.findAll().then(success).catch(err);
 }
 
 exports.find = (payload, err, success) => {
-	db.user.find({
+	db.url.find({
 		where: {
 			id: payload.id,
 		},
@@ -22,7 +22,7 @@ exports.find = (payload, err, success) => {
 }
 
 exports.update = (payload, err, success) => {
-	db.user.find({
+	db.url.find({
 		where: {
 			id: payload.id,
 		}
@@ -32,7 +32,7 @@ exports.update = (payload, err, success) => {
 }
 
 exports.destroy = (payload, err, success) => {
-	db.user.destroy({
+	db.url.destroy({
 		where: {
 			id: payload.id,
 		}

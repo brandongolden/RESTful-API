@@ -13,6 +13,18 @@ const sequelize =  new Sequelize(process.env.DB_NAME, process.env.DB_USER, proce
 	logging: false,
 });
 
+
+const url = sequelize.define('url', {
+	user_url: {
+		type: Sequelize.STRING,
+	},
+	shortened_url: {
+		type: Sequelize.STRING,
+	}
+});
+
+
+/*
 const user = sequelize.define('user', {
 	name: {
 		type: Sequelize.STRING,
@@ -37,11 +49,12 @@ const course = sequelize.define('course', {
 course.hasMany(user, {
 	foreignKey: 'CourseID',
 })
-
+*/
 
 
 sequelize.sync();
 
 exports.sequelize = sequelize;
-exports.user = user;
-exports.course = course;
+exports.url = url;
+//exports.user = user;
+//exports.course = course;

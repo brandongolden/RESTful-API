@@ -8,7 +8,7 @@ module.exports = (express) => {
 	});
 
 	//Routes
-	router.use('/api/', require('./api/user')(express));
-	
+	router.use('/api/', require('./api/url')(express));
+
 	return router;
 }
