@@ -13,4 +13,34 @@ const sequelize =  new Sequelize(process.env.DB_NAME, process.env.DB_USER, proce
 	logging: false,
 });
 
-const user = sequelize.define('user',)
+const user = sequelize.define('user', {
+	name: {
+		type: Sequelize.STRING,
+	},
+	age: {
+		type: Sequelize.INTEGER,
+	},
+	hobby: {
+		type: Sequelize.STRING,
+	}
+});
+
+const course = sequelize.define('course', {
+	name: {
+		type: Sequelize.STRING,
+	},
+	code: {
+		type: Sequelize.INTEGER,
+	},
+});
+
+course.hasMany(user, {
+	foreignKey: 'CourseID',
+})
+
+
+
+sequelize.sync();
+
+exports.sequelize = sequelize;
+exports.user = user;
