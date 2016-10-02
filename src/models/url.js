@@ -1,5 +1,24 @@
 const db = require('./db');
 
+
+
+exports.redirect = (payload, err, success) => {
+	db.url.find({
+		where: {
+			shortened_url: payload.shortened_url,
+		},
+		// Find all relations in sequelize
+		include: [{
+			all: true,
+			nested: true,
+		}],
+	}).then(success).catch(err);
+}
+
+
+
+
+
 exports.create = (payload, err, success) => {
 	db.url.create(payload).then(success).catch(err);
 }

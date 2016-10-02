@@ -3,6 +3,24 @@ const url = require('../../models/url');
 module.exports = (express) => {
 	const router = express.Router();
 
+
+	// Redirect
+	router.get('/go/:shortened_url', (req, res) => {
+		//req.body.id = req.params.id;
+		req.body.shortened_url = req.params.shortened_url;
+
+		
+		url.redirect(req.body, (err) => {
+			res.status(500).json(err);
+		}, (data) => {
+			res.status(200).json(data);	
+		})
+
+
+		res.redirect("http://localhost:3000/");
+	});
+
+
 	// Read All
 	router.get('/urls', (req, res) => {
 		url.findAll( (err) => {

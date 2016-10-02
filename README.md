@@ -13,6 +13,10 @@ $ npm install mysql
 $ npm install dotenv --save
 ```
 ## Endpoints
+
+
 GET /api/v1/url
 
-{"url":{"user_url":"http://www.fullsail.edu/","shortened_url":"http://localhost:3000/ypc6z5"}}
+```javascript
+{"url":{"user_url":"http://www.apple.com/iphone-7/","shortened_url":"to1ejk"}}
+```
