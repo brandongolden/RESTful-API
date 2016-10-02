@@ -44,3 +44,4 @@ sequelize.sync();
 
 exports.sequelize = sequelize;
 exports.user = user;
+exports.course = course;
