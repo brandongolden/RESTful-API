@@ -14,9 +14,17 @@ $ npm install dotenv --save
 ```
 ## Endpoints
 
+POST /api/v1/url
+- Create a shortened URL
 
-GET /api/v1/url
+GET /api/v1/urls
+- Display all URLS
 
-```javascript
-{"url":{"user_url":"http://www.apple.com/iphone-7/","shortened_url":"to1ejk"}}
-```
+GET /api/v1/url/:id
+- Display URL based upon id
+
+POST /api/v1/url/:id
+- Update URL based upon id
+
+DELETE /api/v1/url/:id
+- Delete url based upon id
