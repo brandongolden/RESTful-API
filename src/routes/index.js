@@ -1,14 +1,14 @@
 module.exports = (express) => {
-	const router = express.Router();
+  const router = express.Router();
 
-	router.post('/status', (req, res) => {
-		res.json({
-			healthy: true,
-		})
-	});
+  router.post('/status', (req, res) => {
+    res.json({
+      healthy: true,
+    });
+  });
 
-	//Routes
-	router.use('/api/v1/', require('./api/url')(express));
+  // Routes
+  router.use('/api/v1/', require('./api/url')(express));
 
-	return router;
-}
+  return router;
+};
