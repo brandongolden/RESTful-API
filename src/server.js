@@ -18,7 +18,6 @@ app.use('/', require('./routes')(express));
 //app.use(express.static('public'));
 
 
-
 exports.server = app.listen(port, () => {
 	console.log('Server Active On', port);
 });
