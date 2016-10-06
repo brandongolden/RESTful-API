@@ -17,8 +17,8 @@ app.use('/', require('./routes')(express));
 //app.use('/api/v1', require('../routes/api.js')(express));
 //app.use(express.static('public'));
 
-
-exports.server = app.listen(port, () => {
+//exports.server
+server = app.listen(port, () => {
 	console.log('Server Active On', port);
 });
 
@@ -28,4 +28,4 @@ var server = app.listen(port, function() {
 });
 */
 
-//module.exports = server;
+module.exports = server;

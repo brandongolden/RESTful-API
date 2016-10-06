@@ -1,5 +1,7 @@
-var server = require('../src/server.js');
-request = require('supertest');
+var expect = require("chai").expect;
+
+//var server = require('../src/server.js');
+var request = require('supertest');
 
 describe('API', function() {
 
@@ -11,30 +13,57 @@ describe('API', function() {
 		server.close();
 	});
 
-	it('/ should return specified object.', function testHealth(done) {
+	// Create
+	it('/api/v1/url', function unitTests(done) {
 		request(server)
-		  .get('/api/v1')
+		  .post('/api/v1/url/')
+		  .send({"user_url": "http://www.apple.com/iphone/"})
 		  .set('Accept', 'application/json')
 		  .expect('Content-Type', /json/)
-		  .expect(200, {hello: "world"}, done);
+		  .expect(200, done);
 	});
 
-	it('/status should return specified healthy:true', function testHealth(done) {
+	// Read One
+	it('/api/v1/url/:id', function unitTests(done) {
+		var urlID = 60;
 		request(server)
-		  .get('/api/v1/status')
+		  .get('/api/v1/url/' + urlID)
 		  .set('Accept', 'application/json')
 		  .expect('Content-Type', /json/)
-		  .expect(200, {healthy: true}, done);
+		  .expect(200, {"id": 60, "user_url": "http://www.apple.com/iphone-7/", "shortened_url": "to1ejk", "createdAt": "2016-10-02T20:59:06.000Z", "updatedAt": "2016-10-02T20:59:06.000Z"}, done);
 	});
 
-
-	it('/user/id should return a user obj with id.', function testHealth(done) {
-		var fakeUserID = 374;
+	// Read All
+	it('/api/v1/urls', function unitTests(done) {
 		request(server)
-		  .get('/api/v1/user/' + fakeUserID)
+		  .get('/api/v1/urls')
 		  .set('Accept', 'application/json')
 		  .expect('Content-Type', /json/)
-		  .expect(200, { user: {id: fakeUserID}}, done);
+		  .expect(200, done);
 	});
+
+	// Delete
+	it('/api/v1/url/:id', function unitTests(done) {
+		var urlID = 62;
+		request(server)
+		  .delete('/api/v1/url/' + urlID)
+		  .set('Accept', 'application/json')
+		  .expect('Content-Type', /json/)
+		  .expect(200, done);
+	});
+
+	// Update
+	it('/api/v1/url/:id', function unitTests(done) {
+		var urlID = 63;
+		request(server)
+		  .post('/api/v1/url/' + urlID)
+		  .send({"user_url": "http://www.apple.com/watch/"})
+		  .set('Accept', 'application/json')
+		  .expect('Content-Type', /json/)
+		  .expect(200, done);
+	});
+
+
+	
 
 });
