@@ -1,60 +1,31 @@
 const Sequelize = require('sequelize');
 
 require('dotenv').config();
+
 const sequelize =  new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASS, {
-	host: process.env.DB_HOST,
-	dialect: process.env.DB_SCHEMA,
-	port: process.env.DB_PORT,
-	pool: {
-		max: 5,
-		min: 0,
-		idle: 10000,
-	},
-	logging: false,
+  host: process.env.DB_HOST,
+  dialect: process.env.DB_SCHEMA,
+  port: process.env.DB_PORT,
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000,
+  },
+  logging: false,
 });
 
 
 const url = sequelize.define('url', {
-	user_url: {
-		type: Sequelize.STRING,
-	},
-	shortened_url: {
-		type: Sequelize.STRING,
-	}
+  user_url: {
+    type: Sequelize.STRING,
+  },
+  shortened_url: {
+    type: Sequelize.STRING,
+  },
 });
-
-
-/*
-const user = sequelize.define('user', {
-	name: {
-		type: Sequelize.STRING,
-	},
-	age: {
-		type: Sequelize.INTEGER,
-	},
-	hobby: {
-		type: Sequelize.STRING,
-	}
-});
-
-const course = sequelize.define('course', {
-	name: {
-		type: Sequelize.STRING,
-	},
-	code: {
-		type: Sequelize.INTEGER,
-	},
-});
-
-course.hasMany(user, {
-	foreignKey: 'CourseID',
-})
-*/
 
 
 sequelize.sync();
 
 exports.sequelize = sequelize;
 exports.url = url;
-//exports.user = user;
-//exports.course = course;
