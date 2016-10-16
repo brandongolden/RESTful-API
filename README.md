@@ -28,3 +28,14 @@ POST /api/v1/url/:id
 
 DELETE /api/v1/url/:id
 - Delete url based upon id
+
+## Workflow
+```
+1.) Create new branch from master
+2.) Make changes to code
+3.) New pull request
+4.) Merge into master branch
+5.) Tag release
+5.) New pull request
+6.) Merge into release branch to automatically deploy application to production
+```
