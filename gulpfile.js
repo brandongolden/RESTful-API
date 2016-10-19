@@ -6,7 +6,7 @@
 // $ npm install --save-dev gulp
 // $ npm install --save-dev gulp-bump
 // $ npm install --save-dev gulp-util
-
+// $ npm install --save-dev gulp-git
 
 // cd ~/Desktop/URL-Shortener
 // Run gulp
@@ -43,6 +43,8 @@ gulp.task('major', function() {
     .pipe(gulp.dest('./'));
 });
 
+// Git Commit
+// $ gulp commit
 gulp.task('commit', function () {
   return gulp.src('.')
     .pipe(git.add())
