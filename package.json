@@ -1,6 +1,6 @@
 {
   "name": "node_api_seed",
-  "version": "1.10.0",
+  "version": "1.10.2",
   "description": "URL shortener application ## Installation instructions ``` $ npm install body-parser $ npm install express $ npm install --save-dev chai $ npm install --save-dev expect $ npm install --save-dev mocha $ npm install --save-dev supertest $ npm install sequelize $ npm install mysql $ npm install dotenv --save ``` ## Endpoints",
   "main": "src/server.js",
   "scripts": {
