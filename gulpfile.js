@@ -15,6 +15,7 @@
 var gulp = require('gulp');
 var bump = require('gulp-bump');
 var gutil = require('gulp-util');
+var git = require('gulp-git');
 
 
 
@@ -40,4 +41,10 @@ gulp.task('major', function() {
     return gulp.src(['./bower.json', './package.json'])
     .pipe(bump({type: "major"}).on('error', gutil.log))
     .pipe(gulp.dest('./'));
+});
+
+gulp.task('commit', function () {
+  return gulp.src('.')
+    .pipe(git.add())
+    .pipe(git.commit('Gulp Automated Version Bumping'));
 });
