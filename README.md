@@ -11,6 +11,12 @@ $ npm install --save-dev supertest
 $ npm install sequelize
 $ npm install mysql
 $ npm install dotenv --save
+
+$ npm install --global gulp-cli
+$ npm install --save-dev gulp
+$ npm install --save-dev gulp-bump
+$ npm install --save-dev gulp-util
+$ npm install --save-dev gulp-git
 ```
 ## Endpoints
 
@@ -38,4 +44,23 @@ DELETE /api/v1/url/:id
 5.) Tag release
 5.) New pull request
 6.) Merge into release branch to automatically deploy application to production
+```
+
+## Automated Version Bumping
+
+### Patch version bump and git commit changes
+```
+$ gulp
+```
+
+### Minor version bump
+```
+$ gulp minor
+$ gulp commit
+```
+
+### Major version bump
+```
+$ gulp major
+$ gulp commit
 ```

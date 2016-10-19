@@ -19,9 +19,9 @@ var git = require('gulp-git');
 
 
 
-// Patch - default
-// $ gulp
-gulp.task('default', function() {
+// Patch
+// $ gulp patch
+gulp.task('patch', function() {
     return gulp.src(['./bower.json', './package.json'])
     .pipe(bump({type: "patch"}).on('error', gutil.log))
     .pipe(gulp.dest('./'));
@@ -48,5 +48,21 @@ gulp.task('major', function() {
 gulp.task('commit', function () {
   return gulp.src('.')
     .pipe(git.add())
-    .pipe(git.commit('Gulp Automated Version Bumping'));
+    .pipe(git.commit('Version Bump'));
+});
+
+
+// Default - Patch version bump and git commit changes
+// $ gulp
+gulp.task('default', function() {    
+
+	// Patch version bump
+    return gulp.src(['./bower.json', './package.json'])
+    .pipe(bump({type: "patch"}).on('error', gutil.log))
+    .pipe(gulp.dest('./'))
+
+    // Git commit version bump
+    .pipe(git.add())
+    .pipe(git.commit('Version Bump'));
+
 });
