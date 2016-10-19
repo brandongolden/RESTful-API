@@ -1,6 +1,6 @@
 {
   "name": "node_api_seed",
-  "version": "1.0.0",
+  "version": "1.7.0",
   "description": "URL shortener application ## Installation instructions ``` $ npm install body-parser $ npm install express $ npm install --save-dev chai $ npm install --save-dev expect $ npm install --save-dev mocha $ npm install --save-dev supertest $ npm install sequelize $ npm install mysql $ npm install dotenv --save ``` ## Endpoints",
   "main": "src/server.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "eslint-plugin-import": "^2.0.0",
     "expect": "^1.20.2",
     "gulp": "^3.9.1",
+    "gulp-util": "^3.0.7",
     "mocha": "^3.1.0",
     "supertest": "^2.0.0"
   },
